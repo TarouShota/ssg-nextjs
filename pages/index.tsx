@@ -4,15 +4,17 @@ import { GetStaticProps } from 'next'
 import useSWR from 'swr'
 import { useEffect, useState } from 'react'
 
-import board from '../public/board.jpg'
-
 interface Product {
   id: string
   title: string
   description: string
   image: string
   price: string
-  stock: number
+  stock: number,
+  name: string,
+  design: string,
+  features: string,
+  action: string;
 }
 
 interface Props {
@@ -26,12 +28,16 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       product: {
-        id: 'mug-nextjs',
-        title: 'Vercel Mug',
-        description: 'Limited Edition',
-        image: '/mug.png',
+        id: 'flask-997',
+        title: '997 Flask',
+        image: '/bottle.jpg',
         price: 150,
         stock: 5,
+        name: "997 Vacuum Flask",
+
+        description: "Experience perfection with the 997 Vacuum Flask. A sleek black design and cutting-edge insulation redefine on-the-go luxury.",
+        features: "Superior insulation, leak-proof, and effortlessly chic. The 997 Vacuum Flask is more than a beverage companion; it's an expression of your refined taste.",
+        action: "Order Now"
       },
     },
   }
@@ -129,52 +135,11 @@ function ProductCard({ product }: Props) {
 
 
 
-function Home2() {
-  return (
-    <div className="bg-black text-white h-screen flex items-center justify-center">
-      <div className="max-w-4xl flex items-center">
-        <div className="mr-8">
-          {/* Adjust the width and height values as needed */}
-          <Image
-            src="/bottle.jpg"
-            alt="Product Image"
-            width={1000}
-            height={1000}
-            className="rounded-md"
-          />
-        </div>
-        {/* <section className="border border-gray-300 bg-white rounded-lg shadow-lg mt-16 w-full hover:shadow-2xl transition  lg:pt-24">
-          <div className="p-4 flex flex-col justify-center items-center border-b">
-            <div className="flex justify-between w-full items-baseline">
-              <div className="ml-4 mr-auto text-left flex flex-col">
-                <h4 className="font-semibold text-xl">Product Landing Page</h4>
-                <h5 className="text-gray-700">
-                  Welcome to our sleek and stylish product landing page created with Next.js, Tailwind CSS, and TypeScript.
-                </h5>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div> */}
-        <div>
-          <h1 className="text-4xl font-bold mb-4">Product Landing Page</h1>
-          <p className="text-lg mb-6">
-            Welcome to our sleek and stylish product landing page created with Next.js, Tailwind CSS, and TypeScript.
-          </p>
-          <p className="text-lg mb-6">
-            Our black bottle design signifies elegance and quality, setting our product apart from the rest.
-          </p>
-          <p className="text-lg mb-6">
-            Explore the features and benefits of our product and discover how it can enhance your lifestyle.
-          </p>
-          {/* <button className="bg-white text-black py-2 px-4 rounded-md hover:bg-zinc-800 focus:outline-none focus:shadow-outline-green active:bg-zinc-800">
-            Order Now
-          </button> */}
-        </div>
-      </div>
-    </div>
-  )
-}
+// function Home2() {
+//   return (
+
+//   )
+// }
 
 
 
@@ -184,71 +149,31 @@ function Home2() {
 
 function Home({ product }: Props) {
   return (
-    <Page>
+    <div className="min-h-screen h-full bg-black text-white  flex items-center justify-center">
+      <div className="max-w-2xl text-center">
+        <div className="mb-4">
+          {/* Adjust the width and height values as needed */}
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={320}
+            height={320}
+            className="rounded-md mx-auto"
+          />
+        </div>
+        <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
+        <p className="p-4 text-lg mb-4">{product.description}</p>
+        <Link href={'https://unsplash.com/photos/white-and-black-vacuum-flask-371ROS34quI'}>
+          <button className=" bg-white text-black py-2 px-4 rounded-md hover:bg-neutral-100 focus:outline-none focus:shadow-outline-green active:bg-neutral-200">
+            {product.action}
+          </button>
+        </Link>
 
-      <section className="flex flex-col gap-6">
-        <Text variant="h1">Combining data fetching strategies</Text>
-        <Text>
-          Next.js has two forms of pre-rendering: Static Generation and
-          Server-side Rendering. The difference is in when it generates the HTML
-          for a page.
-        </Text>
-        <List>
-          <li>
-            <Link href="https://nextjs.org/docs/basic-features/pages#static-generation-recommended">
-              Static Generation
-            </Link>{' '}
-            is the pre-rendering method that generates the HTML at build time.
-            The pre-rendered HTML is then reused on each request.
-          </li>
-          <li>
-            <Link href="https://nextjs.org/docs/basic-features/pages#server-side-rendering">
-              Server-side Rendering
-            </Link>{' '}
-            is the pre-rendering method that generates the HTML on each request.
-          </li>
-        </List>
-        <Text>
-          Sometimes we need to have data in our page that is not static and we
-          tend to move away from <Code>getStaticProps</Code> to{' '}
-          <Code>getServerSideProps</Code>.
-        </Text>
-      </section>
-
-      <hr className="border-t border-accents-2 my-6" />
-
-      <section className="flex flex-col gap-3">
-        <Text variant="h2">A real-world example</Text>
-        <Text>
-          We have an e-commerce product page that is statically generated, but
-          we need to disable the &quot;Add to cart&quot; button if we have no
-          stock. We can combine our data fetching strategies to get the best of
-          both worlds. We will still generate our product page statically but we
-          will fetch our stock periodically to update our UI.
-        </Text>
-        <Image
-          src={board}
-          alt="Graph showing how the page is generated at build time and updated client-side"
-        />
-        <Text>
-          This page is statically generated so you can see the example below. We
-          are using <Link href="https://swr.vercel.app">SWR</Link> to fetch the
-          stock status every 5 seconds and disable the &quot;Add to cart&quot;
-          button if we have no stock. The stock is a random number so you can
-          see the button getting disabled and enabled several times.
-        </Text>
-      </section>
-
-      <hr className="border-t border-accents-2 my-6" />
-
-      <section className="flex flex-col gap-3">
-        <ProductCard product={product} />
-      </section>
-    </Page>
+      </div>
+    </div>
   )
 }
 
 Home.Layout = Layout
-Home2.Layout = Layout
 
-export default Home2
+export default Home
