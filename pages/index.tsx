@@ -167,9 +167,9 @@ function Home2() {
           <p className="text-lg mb-6">
             Explore the features and benefits of our product and discover how it can enhance your lifestyle.
           </p>
-          <button className="bg-white text-black py-2 px-4 rounded-md hover:bg-zinc-800 focus:outline-none focus:shadow-outline-green active:bg-green-800">
+          {/* <button className="bg-white text-black py-2 px-4 rounded-md hover:bg-zinc-800 focus:outline-none focus:shadow-outline-green active:bg-zinc-800">
             Order Now
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
