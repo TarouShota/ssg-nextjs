@@ -9,13 +9,9 @@ function App({ Component, pageProps }: AppProps) {
   const Layout = getLayout<LayoutProps>(Component)
 
   return (
-    <Layout
-      title="Combining data fetching strategies"
-      path="solutions/combining-data-fetching-strategies"
-      description="How to adapt data fetching to avoid moving from static pre-rendering"
-    >
+    <>
       <Component {...pageProps} />
-    </Layout>
+    </>
   )
 }
 

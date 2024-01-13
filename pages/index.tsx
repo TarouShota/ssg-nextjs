@@ -50,7 +50,7 @@ function ProductCard({ product }: Props) {
     if (isAdded) {
       timeout = setTimeout(() => {
         toggleAdded(false)
-      }, 1500)
+      }, 1000)
     }
 
     return () => clearTimeout(timeout)
@@ -125,9 +125,67 @@ function ProductCard({ product }: Props) {
   )
 }
 
+
+
+
+
+function Home2() {
+  return (
+    <div className="bg-black text-white h-screen flex items-center justify-center">
+      <div className="max-w-4xl flex items-center">
+        <div className="mr-8">
+          {/* Adjust the width and height values as needed */}
+          <Image
+            src="/bottle.jpg"
+            alt="Product Image"
+            width={1000}
+            height={1000}
+            className="rounded-md"
+          />
+        </div>
+        {/* <section className="border border-gray-300 bg-white rounded-lg shadow-lg mt-16 w-full hover:shadow-2xl transition  lg:pt-24">
+          <div className="p-4 flex flex-col justify-center items-center border-b">
+            <div className="flex justify-between w-full items-baseline">
+              <div className="ml-4 mr-auto text-left flex flex-col">
+                <h4 className="font-semibold text-xl">Product Landing Page</h4>
+                <h5 className="text-gray-700">
+                  Welcome to our sleek and stylish product landing page created with Next.js, Tailwind CSS, and TypeScript.
+                </h5>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div> */}
+        <div>
+          <h1 className="text-4xl font-bold mb-4">Product Landing Page</h1>
+          <p className="text-lg mb-6">
+            Welcome to our sleek and stylish product landing page created with Next.js, Tailwind CSS, and TypeScript.
+          </p>
+          <p className="text-lg mb-6">
+            Our black bottle design signifies elegance and quality, setting our product apart from the rest.
+          </p>
+          <p className="text-lg mb-6">
+            Explore the features and benefits of our product and discover how it can enhance your lifestyle.
+          </p>
+          <button className="bg-white text-black py-2 px-4 rounded-md hover:bg-zinc-800 focus:outline-none focus:shadow-outline-green active:bg-green-800">
+            Order Now
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
+
+
+
+
+
 function Home({ product }: Props) {
   return (
     <Page>
+
       <section className="flex flex-col gap-6">
         <Text variant="h1">Combining data fetching strategies</Text>
         <Text>
@@ -191,5 +249,6 @@ function Home({ product }: Props) {
 }
 
 Home.Layout = Layout
+Home2.Layout = Layout
 
-export default Home
+export default Home2
