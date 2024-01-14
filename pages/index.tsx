@@ -7,7 +7,7 @@ interface Product {
   id: string
   title: string
   description: string
-  image: string
+  images: string[],
   price: string
   stock: number,
   name: string,
@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps = async () => {
       product: {
         id: 'flask-705',
         title: '705 Flask',
-        image: '/bottle.jpg',
+        images: ['/los-angeles.jpg', '/plain-t.jpg', '/bottle.jpg ', '/eco-bottle.jpg', '/tolstovka.jpg', '/gray-tolstovka.jpg', '/tshirt-pack.jpg', '/plain-t-pack.jpg'],
         price: 150,
         stock: 5,
         name: "Vacuum Flask",
@@ -45,14 +45,22 @@ function Home({ product }: Props) {
   return (
     <div className="min-h-screen h- bg-black text-white  flex items-center justify-center">
       <div className="p-8 max-w-2xl text-center">
-        <div className="mb-4">
-          <Image
-            src={product.image}
-            alt={product.name}
-            width={320}
-            height={320}
-            className="rounded-md mx-auto"
-          />
+        <div className="mb-4 inline-grid grid-cols-2 grid-rows-2 gap-4" >
+
+          {product.images.map((i, index) => (
+            <Image
+              key={`img-${index}`}
+              priority={true}
+              placeholder={"blur"}
+              blurDataURL={"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8+O3bJwAJjgPRHQFbMgAAAABJRU5ErkJggg=="}
+              src={i}
+              alt={product.name}
+              width={320}
+              height={320}
+              className="rounded-md mx-auto"
+            />
+          )
+          )}
         </div>
         <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
         <p className="p-4 text-lg mb-4">{product.description}</p>
@@ -70,3 +78,14 @@ function Home({ product }: Props) {
 Home.Layout = Layout
 
 export default Home
+
+
+
+
+// style={`
+
+//         display: inline-grid;
+//         grid-template-columns: 1fr 1fr 1fr 1fr;
+//         grid-template-rows: 50% 50%;
+//         grid-column-gap: 1rem;
+//         // grid-row-gap: 1rem; */}
