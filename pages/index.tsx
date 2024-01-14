@@ -43,8 +43,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
 function Home({ product }: Props) {
   return (
-    <div className="min-h-screen h-full bg-black text-white  flex items-center justify-center">
-      <div className="max-w-2xl text-center">
+    <div className="min-h-screen h- bg-black text-white  flex items-center justify-center">
+      <div className="p-8 max-w-2xl text-center">
         <div className="mb-4">
           <Image
             src={product.image}
