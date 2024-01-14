@@ -49,9 +49,7 @@ function Home({ product }: Props) {
         <div className="mb-16 grid grid-cols-2 grid-rows-2 gap-4" >  
 
           {product.images.map((i, index) => (
-            <div>
-
-       
+            <div key={`container-${index}`}>
                <Image
               key={`img-${index}`}
               priority={index < 2}
