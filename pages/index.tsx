@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps = async () => {
       product: {
         id: "lifestyle-705",
         title: "705 Lifestyle",
-        images: ['/los-angeles.jpg', '/bottle.jpg', '/eco-bottle.jpg', '/plain-t.jpg', '/tolstovka.jpg', '/tshirt-pack.jpg', '/plain-t-pack.jpg', '/gray-tolstovka.jpg'],
+        images: ['/bottle.jpg', '/eco-bottle.jpg','/los-angeles.jpg', '/plain-t.jpg', '/tolstovka.jpg','/gray-tolstovka.jpg', '/tshirt-pack.jpg', '/plain-t-pack.jpg'],
         price: 150,
         stock: 5,
         name: "705 Lifestyle",
@@ -45,8 +45,8 @@ function Home({ product }: Props) {
   return (
     <div className="min-h-screen h- bg-black text-white  flex items-center justify-center">
       <div className="p-8  max-w-2xl text-center">
-        {/*  place grid-cols-1 sm: ⬇️  */}
-        <div className="mb-16 grid grid-cols-4 grid-rows-2 gap-4" >  
+        {/*  place grid-cols-1 sm: ⬇️ */}
+        <div className="mb-16 grid grid-cols-2 grid-rows-2 gap-4" >  
 
           {product.images.map((i, index) => (
             <Image
@@ -56,7 +56,7 @@ function Home({ product }: Props) {
               blurDataURL={"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8+O3bJwAJjgPRHQFbMgAAAABJRU5ErkJggg=="}
               src={i}
               alt={i}
-              objectFit='contain'
+           
               width={320}
               height={320}
               className="rounded-md mx-auto"
