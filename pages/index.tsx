@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps = async () => {
       product: {
         id: "lifestyle-705",
         title: "705 Lifestyle",
-        images: ['/los-angeles.jpg', '/bottle.jpg ', '/eco-bottle.jpg', '/plain-t.jpg', '/tolstovka.jpg', '/tshirt-pack.jpg', '/plain-t-pack.jpg', '/gray-tolstovka.jpg'],
+        images: ['/los-angeles.jpg', '/bottle.jpg', '/eco-bottle.jpg', '/plain-t.jpg', '/tolstovka.jpg', '/tshirt-pack.jpg', '/plain-t-pack.jpg', '/gray-tolstovka.jpg'],
         price: 150,
         stock: 5,
         name: "705 Lifestyle",
@@ -55,7 +55,7 @@ function Home({ product }: Props) {
               placeholder={"blur"}
               blurDataURL={"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8+O3bJwAJjgPRHQFbMgAAAABJRU5ErkJggg=="}
               src={i}
-              alt={product.name}
+              alt={i}
               objectFit='contain'
               width={320}
               height={320}
