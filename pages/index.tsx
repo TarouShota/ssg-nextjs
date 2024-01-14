@@ -49,7 +49,10 @@ function Home({ product }: Props) {
         <div className="mb-16 grid grid-cols-2 grid-rows-2 gap-4" >  
 
           {product.images.map((i, index) => (
-            <Image
+            <div>
+
+       
+               <Image
               key={`img-${index}`}
               priority={index < 2}
               placeholder={"blur"}
@@ -61,6 +64,9 @@ function Home({ product }: Props) {
               height={320}
               className="rounded-md mx-auto"
             />
+        <h1 className="text-xl font-bold mt-2">${10 + index * 5}</h1>
+</div>
+         
           )
           )}
         </div>
