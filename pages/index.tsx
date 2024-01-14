@@ -45,8 +45,8 @@ function Home({ product }: Props) {
   return (
     <div className="min-h-screen h- bg-black text-white  flex items-center justify-center">
       <div className="p-8  max-w-2xl text-center">
-        {/* grid-cols-1 sm: place ⬇️ */}
-        <div className="mb-16 grid grid-cols-4 grid-rows-2 gap-4" >  
+        {/*  place ⬇️ */}
+        <div className="mb-16 grid grid-cols-1 sm:grid-cols-4 grid-rows-2 gap-4" >  
 
           {product.images.map((i, index) => (
             <Image
