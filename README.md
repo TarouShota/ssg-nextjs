@@ -1,6 +1,9 @@
 # Next.js SSG App: A Component of an Academic Thesis
 
-This application serves as a component of the Bachelor's Thesis "Identifikace nejvhodnějšího použití pro frameworky Gatsby a Next.js", authored by Adylov Bekzot at the Czech University Of Life Sciences.
+This application serves as a component of the Bachelor's Thesis:
+"Identifikace nejvhodnějšího použití pro frameworky Gatsby a Next.js"
+
+Authored by Adylov Bekzot at the Czech University Of Life Sciences.
 
 ## Features
 
